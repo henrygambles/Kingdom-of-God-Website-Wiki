@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KOG — Site Index</title>
+<meta name="description" content="An index of every Kingdom of God (KOG) site design — click through to explore each one." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✝️</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0a0b;
+    --bg-raised:#131315;
+    --card-border:#232326;
+    --ink:#f4f2ee;
+    --ink-dim:#a8a6a2;
+    --ink-faint:#6d6b68;
+    --accent:#d6ff38;
+    --serif-display: "Bebas Neue", "Arial Narrow", sans-serif;
+    --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "DM Mono", ui-monospace, monospace;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; background:var(--bg); }
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{ color:inherit; }
+
+  .noise{
+    position:fixed; inset:0; pointer-events:none; opacity:0.035; z-index:0; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  header.hero{
+    position:relative;
+    z-index:1;
+    padding: clamp(4rem,10vw,7rem) clamp(1.5rem,6vw,4rem) clamp(3rem,6vw,4rem);
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:0.6em;
+    margin-bottom:1.6em;
+  }
+  .eyebrow::before{
+    content:"";
+    width:6px; height:6px; border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 12px var(--accent);
+  }
+  h1{
+    font-family:var(--serif-display);
+    font-weight:400;
+    font-size:clamp(2.8rem, 8vw, 6rem);
+    line-height:0.94;
+    letter-spacing:0.005em;
+    margin:0 0 0.5em;
+    text-transform:uppercase;
+    max-width:14ch;
+  }
+  header.hero .lede{
+    font-size:clamp(1rem,1.6vw,1.2rem);
+    line-height:1.6;
+    color:var(--ink-dim);
+    max-width:46ch;
+    margin:0;
+  }
+  header.hero .lede strong{ color:var(--ink); font-weight:600; }
+
+  .stat-row{
+    display:flex;
+    gap:clamp(1.5rem,4vw,3rem);
+    margin-top:2.6em;
+    flex-wrap:wrap;
+  }
+  .stat{
+    font-family:var(--mono);
+  }
+  .stat .n{
+    font-size:1.6rem;
+    color:var(--ink);
+    display:block;
+  }
+  .stat .l{
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+
+  main{
+    position:relative;
+    z-index:1;
+    max-width:1180px;
+    margin:0 auto;
+    padding: 0 clamp(1.5rem,6vw,4rem) 6rem;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
+    gap:1.6rem;
+  }
+
+  .card{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    background:var(--bg-raised);
+    border:1px solid var(--card-border);
+    border-radius:14px;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    transition:transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    border-color:var(--card-accent, var(--accent));
+    box-shadow:0 20px 40px -20px rgba(0,0,0,0.6), 0 0 0 1px var(--card-accent, var(--accent)) inset;
+  }
+  .card:focus-visible{
+    outline:2px solid var(--card-accent, var(--accent));
+    outline-offset:3px;
+  }
+
+  .thumb-wrap{
+    position:relative;
+    aspect-ratio: 16 / 10;
+    background:#000;
+    overflow:hidden;
+    border-bottom:1px solid var(--card-border);
+  }
+  .thumb-wrap img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:top;
+    display:block;
+    transition:transform 420ms ease;
+  }
+  .card:hover .thumb-wrap img{ transform:scale(1.035); }
+  .thumb-wrap::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.55) 100%);
+    pointer-events:none;
+  }
+  .swatch-tag{
+    position:absolute;
+    top:0.8rem; left:0.8rem;
+    display:flex; align-items:center; gap:0.5em;
+    background:rgba(10,10,11,0.72);
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,0.12);
+    padding:0.32em 0.7em 0.32em 0.5em;
+    border-radius:100px;
+    font-family:var(--mono);
+    font-size:0.66rem;
+    letter-spacing:0.06em;
+    color:var(--ink-dim);
+    z-index:2;
+  }
+  .swatch-dot{
+    width:9px; height:9px; border-radius:50%;
+    background:var(--card-accent, var(--accent));
+    box-shadow:0 0 8px var(--card-accent, var(--accent));
+    flex:none;
+  }
+
+  .card-body{
+    padding:1.5rem 1.5rem 1.7rem;
+    display:flex;
+    flex-direction:column;
+    gap:0.9rem;
+    flex:1;
+  }
+  .card-title-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:0.75rem;
+  }
+  .card h2{
+    font-family:var(--serif-display);
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:1.7rem;
+    letter-spacing:0.01em;
+    margin:0;
+    line-height:1;
+  }
+  .card .tagline{
+    font-family:var(--mono);
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--card-accent, var(--accent));
+    white-space:nowrap;
+  }
+  .card .desc{
+    font-size:0.92rem;
+    line-height:1.55;
+    color:var(--ink-dim);
+    margin:0;
+  }
+  .card .inspiration{
+    font-size:0.85rem;
+    line-height:1.55;
+    color:var(--ink-faint);
+    margin:0;
+    padding-top:0.85rem;
+    border-top:1px solid var(--card-border);
+  }
+  .card .inspiration b{
+    display:block;
+    font-family:var(--mono);
+    font-size:0.64rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    font-weight:500;
+    margin-bottom:0.5em;
+  }
+  .card-footer{
+    margin-top:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:0.4rem;
+  }
+  .visit{
+    font-family:var(--mono);
+    font-size:0.75rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink);
+    display:inline-flex;
+    align-items:center;
+    gap:0.4em;
+  }
+  .visit .arrow{ transition:transform 200ms ease; }
+  .card:hover .visit .arrow{ transform:translateX(4px); }
+  .fonts-used{
+    font-family:var(--mono);
+    font-size:0.66rem;
+    color:var(--ink-faint);
+  }
+
+  footer{
+    position:relative;
+    z-index:1;
+    max-width:1180px;
+    margin:0 auto;
+    padding: 3rem clamp(1.5rem,6vw,4rem) 5rem;
+    border-top:1px solid var(--card-border);
+    color:var(--ink-faint);
+    font-size:0.85rem;
+    line-height:1.7;
+  }
+  footer strong{ color:var(--ink-dim); }
+
+  @media (prefers-reduced-motion: reduce){
+    .card, .thumb-wrap img, .visit .arrow{ transition:none; }
+  }
+</style>
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="eyebrow">Kingdom of God — Design Studio</div>
+  <h1>Every KOG site,<br/>in one place.</h1>
+  <p class="lede">
+    Each project below is a full, independent exploration of the <strong>KOG</strong> brand —
+    its own color, type system, and visual mood. Click any card to open the live site.
+  </p>
+  <div class="stat-row">
+    <div class="stat"><span class="n">06</span><span class="l">Sites live</span></div>
+    <div class="stat"><span class="n">06</span><span class="l">Design directions</span></div>
+    <div class="stat"><span class="n">∞</span><span class="l">More coming</span></div>
+  </div>
+</header>
+
+<main>
+  <div class="grid" id="site-grid">
+
+    <a class="card" style="--card-accent:#F2B4D1" href="sites/come-gather/" target="_blank" rel="noopener">
+      <div class="thumb-wrap">
+        <span class="swatch-tag"><span class="swatch-dot"></span>#F2B4D1</span>
+        <img src="assets/screenshots/come-gather.jpg" alt="Screenshot of the Come Gather site hero: 'MAKE ROOM KINGDOM.' over a photo of friends on a hillside" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><h2>Come Gather</h2><span class="tagline">Hot&#8209;Pink Editorial</span></div>
+        <p class="desc">A full-bleed editorial scroll built on oversized condensed type, bold pink-and-black contrast, and a floating navigation rail — a communal, art-forward invitation into ordinary faith.</p>
+        <p class="inspiration"><b>Inspiration</b>Recreated from a supplied screenshot of a pale-pink loading screen (a centered “85%” readout), then extended into a fashion-magazine-paced site with street-poster energy.</p>
+        <div class="card-footer">
+          <span class="visit">Visit site <span class="arrow">→</span></span>
+          <span class="fonts-used">Bebas Neue / DM Sans</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" style="--card-accent:#2457F5" href="sites/faith-circle/" target="_blank" rel="noopener">
+      <div class="thumb-wrap">
+        <span class="swatch-tag"><span class="swatch-dot"></span>#2457F5</span>
+        <img src="assets/screenshots/faith-circle.jpg" alt="Screenshot of the Faith Circle site hero: 'A different kind of kingdom is already here.' over a photo of friends by the sea" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><h2>Faith Circle</h2><span class="tagline">Sacred Modernism</span></div>
+        <p class="desc">A warm, photographic landing page — oversized serif headlines, a modular process section, and a cobalt route-line motif guiding visitors toward a next faithful step.</p>
+        <p class="inspiration"><b>Inspiration</b>Benchmarked against a referenced editorial landing page's exact rhythm — photographic hero, utility nav, process section, closing CTA — reinterpreted with KOG's own content and a bone-and-cobalt palette.</p>
+        <div class="card-footer">
+          <span class="visit">Visit site <span class="arrow">→</span></span>
+          <span class="fonts-used">Cormorant Garamond / DM Sans</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" style="--card-accent:#F0C873" href="sites/open-me/" target="_blank" rel="noopener">
+      <div class="thumb-wrap">
+        <span class="swatch-tag"><span class="swatch-dot"></span>#F0C873</span>
+        <img src="assets/screenshots/open-me.jpg" alt="Screenshot of the Open Me site: 'HOW OPEN ARE YOU?' poster headline on a violet field with a peeking mascot" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><h2>Open Me</h2><span class="tagline">Retro Poster Age&#8209;Gate</span></div>
+        <p class="desc">A single bold poster composition — an oversized wheat-yellow headline and a peeking mascot breaking the seam — that treats the whole viewport as one playful, comic-inspired print.</p>
+        <p class="inspiration"><b>Inspiration</b>A faithful recreation of a supplied “Flying Papers” age-gate screenshot, translated through 1970s comic-book display type and screen-printed color.</p>
+        <div class="card-footer">
+          <span class="visit">Visit site <span class="arrow">→</span></span>
+          <span class="fonts-used">Retro display / grotesk</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" style="--card-accent:#F55EAB" href="sites/pink/" target="_blank" rel="noopener">
+      <div class="thumb-wrap">
+        <span class="swatch-tag"><span class="swatch-dot"></span>#F55EAB</span>
+        <img src="assets/screenshots/pink.jpg" alt="Screenshot of the Pink site: 'The kingdom is already here.' beside a crowned character on a raspberry gradient" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><h2>Pink</h2><span class="tagline">Devotional Preloader</span></div>
+        <p class="desc">A quiet, single-color digital threshold — a raspberry field, a breathing crown mark, and a whisper-thin progress readout — before resolving into a full character-led title state.</p>
+        <p class="inspiration"><b>Inspiration</b>A screenshot-faithful recreation of a hot-pink preloader reference, built out into a full experience with a ceremonial, minimal tone.</p>
+        <div class="card-footer">
+          <span class="visit">Visit site <span class="arrow">→</span></span>
+          <span class="fonts-used">Geometric sans</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" style="--card-accent:#C8FF2E" href="sites/studio-1/" target="_blank" rel="noopener">
+      <div class="thumb-wrap">
+        <span class="swatch-tag"><span class="swatch-dot"></span>#C8FF2E</span>
+        <img src="assets/screenshots/studio-1.jpg" alt="Screenshot of the Studio One site: 'MAKE ROOM FOR WHAT MOVES.' in bone-white and chartreuse type on black" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><h2>Studio One</h2><span class="tagline">Sacred Modernism — Dark</span></div>
+        <p class="desc">A black editorial canvas with oversized bone-white type, a single acid-chartreuse spark, and scroll-led reveals of sculptural relic imagery — flame, stone, halo, folded fabric.</p>
+        <p class="inspiration"><b>Inspiration</b>Benchmarked against a black-canvas creative-studio reference site — fixed nav, oversized type, sculptural imagery — reframed through Swiss editorial restraint meeting spiritual symbolism.</p>
+        <div class="card-footer">
+          <span class="visit">Visit site <span class="arrow">→</span></span>
+          <span class="fonts-used">Bebas Neue / Space Grotesk</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" style="--card-accent:#d6ff38" href="sites/studio-2/" target="_blank" rel="noopener">
+      <div class="thumb-wrap">
+        <span class="swatch-tag"><span class="swatch-dot"></span>#D6FF38</span>
+        <img src="assets/screenshots/studio-2.jpg" alt="Screenshot of the Studio Two site: 'MAKE ROOM FOR MORE.' over a crumpled foil smiley-face sculpture" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-title-row"><h2>Studio Two</h2><span class="tagline">Surreal Devotional Studio</span></div>
+        <p class="desc">A long-scroll studio narrative on a near-black canvas — asymmetric editorial layout, surreal tactile imagery, and a lime halo mark — framing faith as a living, expansive world.</p>
+        <p class="inspiration"><b>Inspiration</b>Directly modeled on a "Nothin'"-style reference site's sparse fixed nav, oversized compressed type, and scroll-based discovery, reinterpreted as a spiritual creative studio.</p>
+        <div class="card-footer">
+          <span class="visit">Visit site <span class="arrow">→</span></span>
+          <span class="fonts-used">Bebas Neue / DM Mono</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  <p><strong>About this index.</strong> These are independent design directions for the Kingdom of God (KOG) brand, each built as its own standalone site and gathered here for easy browsing and comparison. New explorations are added as they're finished.</p>
+</footer>
+
+</body>
+</html>
