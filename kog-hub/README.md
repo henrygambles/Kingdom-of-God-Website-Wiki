@@ -36,13 +36,15 @@ Then open the printed localhost URL.
    image src/alt, and the `href="sites/<new-site>/"` link.
 5. Bump the "Sites live" / "Design directions" counters near the top of the page.
 
-## Note on `kog-studio-1` and `kog-studio-2`
+## Note on `kog-studio-1` and `kog-studio-2` artwork
 
-Some images in these two sites are referenced via `/manus-storage/...` paths, which only resolve
-inside the Manus build environment that generated them. Outside of that environment (including here,
-in the static build checked into this repo) those specific images will 404. Everything else in both
-sites renders correctly. To fix permanently, replace those `/manus-storage/...` src values with
-self-hosted image files (e.g. in `client/public/`) or another stable image host, then rebuild.
+These two sites originally referenced images via `/manus-storage/...` paths, which only resolve
+inside the Manus build environment that generated them — outside of it (including here) those
+images 404'd. They've been replaced with original SVG artwork (in each project's
+`client/src/assets/`) matching the same descriptions and palette, imported directly in
+`App.tsx`/`Home.tsx` so they bundle with the app and need no external host. If you'd rather use
+the original photography/renders, export them from Manus, drop them into `client/src/assets/`
+(or `client/public/`), and swap the `import` paths back.
 
 ## Routing fix applied
 

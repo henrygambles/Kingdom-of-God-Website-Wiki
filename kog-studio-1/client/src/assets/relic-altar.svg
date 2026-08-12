@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" role="img" aria-label="A folded fabric, basalt ring, and glowing bead arranged as an altar">
+  <defs>
+    <radialGradient id="bg5" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#141310"/>
+      <stop offset="100%" stop-color="#050504"/>
+    </radialGradient>
+    <linearGradient id="cloth" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a4238"/>
+      <stop offset="100%" stop-color="#1c1814"/>
+    </linearGradient>
+    <radialGradient id="basalt" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#3a3a38"/>
+      <stop offset="60%" stop-color="#181816"/>
+      <stop offset="100%" stop-color="#060605"/>
+    </radialGradient>
+    <radialGradient id="bead" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#f4ffd9"/>
+      <stop offset="45%" stop-color="#c8ff2e"/>
+      <stop offset="100%" stop-color="#c8ff2e" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blurR"><feGaussianBlur stdDeviation="20"/></filter>
+    <filter id="grainR">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="1000" fill="url(#bg5)"/>
+
+  <!-- folded fabric base -->
+  <path d="M 120 760 C 260 700 420 730 560 690 C 700 650 860 690 1080 640 L 1100 900 C 820 960 400 960 130 900 Z" fill="url(#cloth)"/>
+  <path d="M 200 760 C 360 720 520 750 660 710" fill="none" stroke="#0a0908" stroke-width="3" opacity="0.5"/>
+  <path d="M 260 820 C 440 790 620 810 800 770" fill="none" stroke="#0a0908" stroke-width="3" opacity="0.4"/>
+
+  <!-- basalt ring -->
+  <ellipse cx="700" cy="600" rx="220" ry="90" fill="url(#basalt)"/>
+  <ellipse cx="700" cy="600" rx="220" ry="90" fill="none" stroke="#000" stroke-width="2" opacity="0.6"/>
+  <ellipse cx="700" cy="600" rx="130" ry="50" fill="url(#bg5)"/>
+  <ellipse cx="700" cy="600" rx="130" ry="50" fill="none" stroke="#050504" stroke-width="2"/>
+
+  <!-- glowing bead resting beside the ring -->
+  <circle cx="700" cy="560" r="130" fill="url(#bead)" filter="url(#blurR)" opacity="0.85"/>
+  <circle cx="700" cy="560" r="34" fill="#eaffb0"/>
+  <circle cx="700" cy="560" r="34" fill="none" stroke="#c8ff2e" stroke-width="2" opacity="0.75"/>
+
+  <rect width="1200" height="1000" filter="url(#grainR)"/>
+</svg>

@@ -1,10 +1,16 @@
 import { ArrowDownRight, ArrowUpRight, MoveUpRight } from "lucide-react";
+import brandMark from "@/assets/brand-mark.svg";
+import flameTableImg from "@/assets/flame-table.svg";
+import heroDoorwayImg from "@/assets/hero-doorway.svg";
+import relicAltarImg from "@/assets/relic-altar.svg";
+import studioHandSeedImg from "@/assets/studio-hand-seed.svg";
+import veilImg from "@/assets/veil.svg";
 
 /** Sacred Modernism reminder: use asymmetry, black space, tactile relic imagery, and short declarative copy instead of centered marketing blocks. */
 const works = [
-  { no: "01", title: "The Table", desc: "A place to be seen, fed, and sent.", image: "/manus-storage/kog-flame_63e07008.jpg", tint: "lime" },
-  { no: "02", title: "Open Hands", desc: "Practice over performance.", image: "/manus-storage/kog-studio_3b92103b.jpg", tint: "bone" },
-  { no: "03", title: "The Veil", desc: "What is hidden is still becoming.", image: "/manus-storage/kog-veil_4a3ec80d.jpg", tint: "clay" },
+  { no: "01", title: "The Table", desc: "A place to be seen, fed, and sent.", image: flameTableImg, tint: "lime" },
+  { no: "02", title: "Open Hands", desc: "Practice over performance.", image: studioHandSeedImg, tint: "bone" },
+  { no: "03", title: "The Veil", desc: "What is hidden is still becoming.", image: veilImg, tint: "clay" },
 ];
 
 function Reveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -22,7 +28,7 @@ export default function Home() {
           <Reveal><p className="hero-intro">Kingdom of God is a creative community making faith tangible — through art, table, story, and action.</p></Reveal>
           <a className="circle-link" href="#works" aria-label="Explore KOG works"><ArrowDownRight size={26} strokeWidth={1.2} /></a>
         </div>
-        <div className="hero-art-wrap"><img src="/manus-storage/kog-hero_5b9f6036.jpg" alt="A stone doorway with a flame and chartreuse halo" className="hero-art" /><span className="art-caption">THE DOOR IS NOT A METAPHOR<br />IT IS A PRACTICE</span></div>
+        <div className="hero-art-wrap"><img src={heroDoorwayImg} alt="A stone doorway with a flame and chartreuse halo" className="hero-art" /><span className="art-caption">THE DOOR IS NOT A METAPHOR<br />IT IS A PRACTICE</span></div>
         <div className="hero-index"><span>SCROLL TO ENTER</span><span>01 / 05&nbsp;&nbsp;·&nbsp;&nbsp;LIGHT / LIFE / LOVE</span></div>
       </section>
 
@@ -53,13 +59,13 @@ export default function Home() {
         <div className="section-marker">( THE STUDIO )</div>
         <div className="studio-grid">
           <div className="studio-statement"><Reveal><h2>Faith is<br /><em>not finished.</em></h2></Reveal><p>It keeps becoming. We build the spaces, images, and rituals that help people notice.</p></div>
-          <div className="studio-image"><img src="/manus-storage/kog-studio_3b92103b.jpg" alt="A sculptural hand holding a glowing seed" /><span>01 — OPEN HANDS</span></div>
+          <div className="studio-image"><img src={studioHandSeedImg} alt="A sculptural hand holding a glowing seed" /><span>01 — OPEN HANDS</span></div>
           <div className="studio-list"><p>We make room for :</p><span>Tables where strangers belong</span><span>Stories with a pulse</span><span>Digital places to gather</span><span>Rituals that leave a trace</span><span>Images that make belief visible</span></div>
         </div>
         <div className="studio-note"><span>Perspective is where strategy meets visual culture.</span><span>Built for the curious. Held by the generous.</span><span className="scripture-marker">07:12 / THE TABLE IS LONG</span></div>
       </section>
 
-      <section className="relic-section"><div className="relic-copy"><img className="relic-seal" src="/manus-storage/kog-mark_46beafac.png" alt="" /><span className="section-marker">( A NOTE TO SELF )</span><h2>Stay<br /><em>available.</em></h2><p>The best things often arrive without a brief. Leave a little room for the small thing that becomes everything.</p></div><div className="relic-art"><img src="/manus-storage/kog-relic_6a63e132.jpg" alt="A folded fabric, basalt ring, and glowing bead arranged as an altar" /><span>THE UNEXPECTED IS A DOOR TOO</span></div></section>
+      <section className="relic-section"><div className="relic-copy"><img className="relic-seal" src={brandMark} alt="" /><span className="section-marker">( A NOTE TO SELF )</span><h2>Stay<br /><em>available.</em></h2><p>The best things often arrive without a brief. Leave a little room for the small thing that becomes everything.</p></div><div className="relic-art"><img src={relicAltarImg} alt="A folded fabric, basalt ring, and glowing bead arranged as an altar" /><span>THE UNEXPECTED IS A DOOR TOO</span></div></section>
 
       <footer id="contact" className="site-footer">
         <div className="footer-top"><span className="section-marker">( CONTACT )</span><span>© 26 KOG / ALL THINGS NEW</span><span className="scripture-marker">12:24 / COME AS YOU ARE</span></div>

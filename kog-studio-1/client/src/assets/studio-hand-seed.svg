@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1200" role="img" aria-label="A sculptural hand holding a glowing seed">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141412"/>
+      <stop offset="100%" stop-color="#070706"/>
+    </linearGradient>
+    <linearGradient id="hand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cdc6b4"/>
+      <stop offset="100%" stop-color="#8e8d87"/>
+    </linearGradient>
+    <radialGradient id="seed" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#f4ffd9"/>
+      <stop offset="45%" stop-color="#c8ff2e"/>
+      <stop offset="100%" stop-color="#c8ff2e" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blurH"><feGaussianBlur stdDeviation="22"/></filter>
+    <filter id="grainH">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="1200" fill="url(#bg3)"/>
+
+  <!-- cupped hand, simplified sculptural silhouette -->
+  <path d="M 210 760
+           C 200 660 230 560 280 520
+           C 300 470 300 420 320 400
+           C 340 380 365 390 368 420
+           C 372 460 372 500 380 520
+           C 400 470 405 410 430 390
+           C 452 372 478 384 480 416
+           C 482 456 476 500 486 528
+           C 508 480 520 420 548 402
+           C 570 388 594 400 594 430
+           C 594 470 578 520 590 548
+           C 660 570 720 630 730 720
+           C 738 790 700 850 620 880
+           C 520 918 340 918 260 872
+           C 220 848 208 806 210 760 Z"
+        fill="url(#hand)" opacity="0.92"/>
+  <path d="M 210 760 C 200 660 230 560 280 520" fill="none" stroke="#f2eee5" stroke-width="2" opacity="0.35"/>
+
+  <!-- glowing seed resting in the palm -->
+  <circle cx="470" cy="700" r="150" fill="url(#seed)" filter="url(#blurH)"/>
+  <ellipse cx="470" cy="700" rx="46" ry="52" fill="#eaffb0"/>
+  <ellipse cx="470" cy="700" rx="46" ry="52" fill="none" stroke="#c8ff2e" stroke-width="2" opacity="0.7"/>
+
+  <rect width="960" height="1200" filter="url(#grainH)"/>
+</svg>

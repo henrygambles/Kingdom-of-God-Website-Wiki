@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import brandMark from "@/assets/brand-mark.svg";
 
 const works = [
   { no: "01", title: "The Living Word", tag: "Identity / Experience", image: "https://cdn.prod.website-files.com/6a0c501c42b9751b78a9d1a7/6a101bf4026551468ed05521_coeur-bulle-nb.webp" },
@@ -43,7 +44,7 @@ export default function Home() {
 
       <header className={`site-nav ${menuOpen ? "is-open" : ""}`}>
         <button className="brand-lockup" onClick={() => jump("top")} aria-label="KOG home">
-          <span className="brand-mark"><img src="/manus-storage/kog-mark_a3518c63.png" alt="" /></span>
+          <span className="brand-mark"><img src={brandMark} alt="" /></span>
           <span>KOG</span>
         </button>
         <nav className="desktop-nav" aria-label="Primary navigation">

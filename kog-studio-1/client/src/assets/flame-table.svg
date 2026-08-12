@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1620 1000" role="img" aria-label="A long table set with a single flame of light">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#131311"/>
+      <stop offset="100%" stop-color="#060605"/>
+    </linearGradient>
+    <radialGradient id="flame2" cx="50%" cy="60%" r="60%">
+      <stop offset="0%" stop-color="#eaffb0"/>
+      <stop offset="30%" stop-color="#c8ff2e"/>
+      <stop offset="70%" stop-color="#c8ff2e" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#c8ff2e" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blurT"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="grainT">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+  </defs>
+
+  <rect width="1620" height="1000" fill="url(#bg2)"/>
+
+  <!-- long table -->
+  <rect x="140" y="620" width="1340" height="14" fill="#f2eee5" opacity="0.85"/>
+  <rect x="180" y="634" width="6" height="230" fill="#8e8d87" opacity="0.5"/>
+  <rect x="1434" y="634" width="6" height="230" fill="#8e8d87" opacity="0.5"/>
+
+  <!-- place settings -->
+  <g opacity="0.5" fill="#f2eee5">
+    <circle cx="330" cy="600" r="9"/>
+    <circle cx="560" cy="600" r="9"/>
+    <circle cx="1060" cy="600" r="9"/>
+    <circle cx="1290" cy="600" r="9"/>
+  </g>
+
+  <!-- central flame of gathering -->
+  <ellipse cx="810" cy="580" rx="230" ry="120" fill="url(#flame2)" filter="url(#blurT)"/>
+  <path d="M810 380 C 740 480 740 560 810 640 C 880 560 880 480 810 380 Z" fill="url(#flame2)"/>
+  <path d="M810 460 C 775 510 775 560 810 605 C 845 560 845 510 810 460 Z" fill="#eaffb0"/>
+
+  <rect width="1620" height="1000" filter="url(#grainT)"/>
+</svg>

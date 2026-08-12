@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1620 1000" role="img" aria-label="A folded veil parting to reveal soft light">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#100f0d"/>
+      <stop offset="100%" stop-color="#060605"/>
+    </linearGradient>
+    <linearGradient id="fold1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3a332c"/>
+      <stop offset="100%" stop-color="#1c1916"/>
+    </linearGradient>
+    <linearGradient id="fold2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4c4238"/>
+      <stop offset="100%" stop-color="#241f1a"/>
+    </linearGradient>
+    <radialGradient id="glowV" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#f2eee5" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#f2eee5" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blurV"><feGaussianBlur stdDeviation="30"/></filter>
+    <filter id="grainV">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+  </defs>
+
+  <rect width="1620" height="1000" fill="url(#bg4)"/>
+
+  <!-- light seeping through the parting -->
+  <ellipse cx="810" cy="500" rx="260" ry="360" fill="url(#glowV)" filter="url(#blurV)"/>
+
+  <!-- draped fabric folds parting left and right -->
+  <path d="M 0 0 L 620 0 C 500 260 460 620 700 1000 L 0 1000 Z" fill="url(#fold1)"/>
+  <path d="M 0 0 L 460 0 C 380 300 380 700 560 1000 L 0 1000 Z" fill="url(#fold2)" opacity="0.85"/>
+
+  <path d="M 1620 0 L 1000 0 C 1120 260 1160 620 920 1000 L 1620 1000 Z" fill="url(#fold1)"/>
+  <path d="M 1620 0 L 1160 0 C 1240 300 1240 700 1060 1000 L 1620 1000 Z" fill="url(#fold2)" opacity="0.85"/>
+
+  <!-- fold seams -->
+  <g stroke="#0a0908" stroke-width="2" opacity="0.5">
+    <path d="M 560 0 C 460 260 430 620 650 1000" fill="none"/>
+    <path d="M 1060 0 C 1160 260 1190 620 970 1000" fill="none"/>
+  </g>
+
+  <rect width="1620" height="1000" filter="url(#grainV)"/>
+</svg>

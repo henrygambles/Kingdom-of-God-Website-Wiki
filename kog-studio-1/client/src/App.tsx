@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import brandMark from "./assets/brand-mark.svg";
 import Home from "./pages/Home";
 
 /** Sacred Modernism reminder: the shell is a quiet black frame; utility labels stay small while navigation opens as a full-screen ritual. */
@@ -36,7 +37,7 @@ function App() {
 
       <header className="site-header">
         <button className="brand-lockup" onClick={() => jump("top")} aria-label="Back to top">
-          <img className="brand-mark-image" src="/manus-storage/kog-mark_46beafac.png" alt="" />
+          <img className="brand-mark-image" src={brandMark} alt="" />
           <span className="brand-name">KOG</span>
         </button>
         <div className="header-right">

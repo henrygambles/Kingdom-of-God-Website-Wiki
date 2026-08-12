@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-label="A stone doorway with a flame and chartreuse halo">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#161613"/>
+      <stop offset="55%" stop-color="#0c0c0a"/>
+      <stop offset="100%" stop-color="#050504"/>
+    </radialGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c8ff2e" stop-opacity="0.85"/>
+      <stop offset="55%" stop-color="#c8ff2e" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#c8ff2e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="flame" cx="50%" cy="65%" r="55%">
+      <stop offset="0%" stop-color="#ffe9b8"/>
+      <stop offset="35%" stop-color="#f2b23c"/>
+      <stop offset="75%" stop-color="#c8672a"/>
+      <stop offset="100%" stop-color="#c8672a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="doorFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#020202"/>
+      <stop offset="100%" stop-color="#0e0e0c"/>
+    </linearGradient>
+    <filter id="blurL"><feGaussianBlur stdDeviation="26"/></filter>
+    <filter id="blurM"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="1600" fill="url(#bg)"/>
+
+  <!-- distant halo glow -->
+  <circle cx="600" cy="560" r="360" fill="url(#halo)" filter="url(#blurL)"/>
+  <circle cx="600" cy="560" r="230" fill="none" stroke="#c8ff2e" stroke-width="2" opacity="0.55"/>
+  <circle cx="600" cy="560" r="230" fill="none" stroke="#c8ff2e" stroke-width="1" opacity="0.9"/>
+
+  <!-- ground line -->
+  <line x1="0" y1="1220" x2="1200" y2="1220" stroke="#8e8d87" stroke-width="1" opacity="0.35"/>
+
+  <!-- doorway arch -->
+  <path d="M 430 1220 L 430 760 Q 430 560 600 560 Q 770 560 770 760 L 770 1220 Z"
+        fill="url(#doorFace)" stroke="#f2eee5" stroke-width="3" opacity="0.96"/>
+  <path d="M 470 1220 L 470 770 Q 470 610 600 610 Q 730 610 730 770 L 730 1220 Z"
+        fill="none" stroke="#f2eee5" stroke-width="1" opacity="0.28"/>
+
+  <!-- threshold flame -->
+  <ellipse cx="600" cy="1195" rx="150" ry="46" fill="url(#flame)" filter="url(#blurM)" opacity="0.7"/>
+  <path d="M600 1080 C 560 1140 560 1180 600 1220 C 640 1180 640 1140 600 1080 Z" fill="url(#flame)"/>
+  <path d="M600 1130 C 580 1160 580 1185 600 1210 C 620 1185 620 1160 600 1130 Z" fill="#ffe9b8"/>
+
+  <!-- fine vertical light seam through the doorway -->
+  <rect x="597" y="620" width="6" height="600" fill="#c8ff2e" opacity="0.18"/>
+
+  <rect width="1200" height="1600" filter="url(#grain)"/>
+</svg>
